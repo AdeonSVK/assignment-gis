@@ -67,7 +67,7 @@ Example: `http://ip_address_of_server:8080/pois?mennekes=true&chademo=true&ccs=t
 Example with 20 km radius: `http://ip_address_of_server:8080/nearby?mennekes=true&chademo=true&ccs=true&cee5=true&cee75=true&mennekest=true&iec=true&tesla=true&j1772=true&kwfrom=0&kwto=0&lat=48.1563651&lng=17.1102536&radius=20000`
 ***
 - **along the route** (along highways and expressways)
-  - retrieves charging stations withing given distance from given highway or expressway
+  - retrieves charging stations within given distance from given highway or expressway
   - applies connector filters
   
 Example with 5 km radius and D1 highway: `http://ip_address_of_server:8080/along?mennekes=true&chademo=true&ccs=true&cee5=true&cee75=true&mennekest=true&iec=true&tesla=true&j1772=true&kwfrom=0&kwto=0&radius=5000&road=D1`
@@ -113,7 +113,7 @@ SELECT DISTINCT poi.id FROM poi
     AND (  connectionTypeId = 25 OR connectionTypeId = 2 ...)
 ~~~~
 ***
-- **along the route** - query retrieves charging stations withing given distance from given highway or expressway
+- **along the route** - query retrieves charging stations within given distance from given highway or expressway
   - Joins relevant data from poi, charging station and connection tables
   - Cross join planet_osm_line with charging station locations
   - Consider only highways and expressways (WHERE highway = 'motorway')
