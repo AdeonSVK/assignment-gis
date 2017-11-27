@@ -33,20 +33,20 @@ Build a map-based application, which lets the user see geo-based data on a map a
 1. All charging stations in slovakia 
 2. details of a charging station
 3. filtering options
-4. charging stations along the D1 highway withing 5 km radius.
+4. charging stations along the D1 highway within 5 km radius.
 
 ![Screenshot](scr1.png) ![Screenshot](scr2.png)
 ![Screenshot](scr3.png) ![Screenshot](scr4.png)
 
-**Technologies used**: Android, Java, Spring, REST API, Mapbox Android SDK, PostgreSQL, PostGIS
+**Technologies used**: Android, Java, Spring, Google Volley - REST API, Mapbox Android SDK, PostgreSQL, PostGIS
 
 # Frontend
-Fronted is an Android application which uses Mapbox Android SDK to render maps and data custom markers supplies to it. The application contains action bar with three controls:
+Fronted is an Android application which uses Mapbox Android SDK to render maps and  markers supplied to it. The application contains action bar with three controls:
 - GPS localization - uses GPS to find user location and adds a green marker to that location
 - Filter - Allows users to filter by chosen connector types and min/max power output (screen 3)
 - Search - Allows users to search for charging stations in a specific modes - nearby, along the route and in a specific region
 
-After user clicks on the marker of a charging station, a basic data is about the station is shown. Filtering window contains list of all charging connector types with images in Slovakia. Search window provides three search modes with description and fields to enter required data.
+After user clicks on the marker of a charging station, basic information about the station is shown. Filtering window contains a list of all charging connector types with images in Slovakia. Search window provides three search modes with description and fields to enter required data.
 
 # Backend
 Backend is a server based on the Spring framework. It runs a PostgreSQL database with PostGIS extension. Database was filled with openstreetmaps data for whole Slovakia. Downloaded .osm.pbf file was imported into database using osm2pgsql. Charging stations data were downloaded using publicly accessible openchargemap.org API. Downloaded JSON was parsed into individual charging station objects and saved into DB. Location coordinates from both - openstreetmaps and openchargemap data were converted to WGS 84(4326) projection.
